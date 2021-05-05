@@ -54,7 +54,7 @@ if(ucodeR == null){
 	}
 	else {
 		// 회원정보 member table에 입력할 string
-		sql = "insert into ROOM values ('" + ucode + "','" + rid + "','" + rsize + "','" + ractivity + "','" + rcamcode + "','" + rauto + "')";
+		sql = "insert into ROOM values ('" + ucode + "','" + rid + "','" + rsize + "','" + ractivity + "','" + rauto + "','" + rcamcode + "')";
 
 		// 중복된 아이디 있을 시 경고창 뜨기 and 없으면 테이블 추가
 		try {

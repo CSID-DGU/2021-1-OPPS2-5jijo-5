@@ -23,7 +23,7 @@ try {
   String url = "jdbc:mysql://localhost:3306/tempset?serverTimezone=UTC";
   conn = DriverManager.getConnection(url, "root", "0000");
   stmt = conn.createStatement();
-  sql = "select * from ROOM where ucode="+ucodeR;
+  sql = "select * from ROOM where ucode='"+ucodeR+"'";
   rs = stmt.executeQuery(sql);
 }
 catch(Exception e) {
@@ -38,7 +38,7 @@ catch(Exception e) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Tables - SB Admin</title>
+        <title>TEMPSET Building Automation System - TABLE</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -71,7 +71,7 @@ catch(Exception e) {
                         <div class="nav">
 
 
-                            <div class="sb-sidenav-menu-heading">Help</div>
+                            <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="charts.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
@@ -88,16 +88,16 @@ catch(Exception e) {
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Tables</h1>
+                        <h1 class="mt-4">Building Mangement</h1>
                         <ol class="breadcrumb mb-4">
 
-                            <li class="breadcrumb-item active">Tables</li>
+                            <li class="breadcrumb-item active">Manage your spaces</li>
                         </ol>
 
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                Space Information
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -115,15 +115,15 @@ catch(Exception e) {
                                         <tbody>
                                               <%
                                               while(rs.next()) {
-                                                ucode = rs.getString("ucode");            // user code
+                                                ucode = rs.getString("ucode");        // user code
                                                 rid = rs.getString("rid");            // room id
-                                                rsize = rs.getInt("rsize");            // room size
+                                                rsize = rs.getInt("rsize");           // room size
                                                 ractivity = rs.getInt("ractivity");   // on/off
-                                                rauto = rs.getInt("rauto");         // on/off
-                                                rcamcode = rs.getInt("rcamcode");   // cam code
+                                                rauto = rs.getInt("rauto");           // on/off
+                                                rcamcode = rs.getInt("rcamcode");     // cam code
                                             %>
                                             <tr>
-                                                <td><%=rid %></td>
+                                                <td><a href="charts.jsp?rid=<%=rid %>"><%=rid %></td>
                                                 <td><%=rsize %></td>
                                                 <td>!count!</td>
                                                 <td>!count/rsize!</td>
@@ -133,7 +133,7 @@ catch(Exception e) {
                                             </tr>
                                             <%
                                               }
-                                              %>
+                                            %>
 
                                         </tbody>
                                     </table>
@@ -141,7 +141,7 @@ catch(Exception e) {
                                 </div>
                             </div>
                         </div>
-		<button class = "insert"><a href = "insertTable.jsp">Insert Table&nbsp&nbsp&nbsp</a></button>
+		<button class = "insert"><a href = "insertTable.jsp">Insert Table</a></button>
                     </div>
                 </main>
 

@@ -12,7 +12,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>TempSet</title>
+    <title>TEMPSET - Building Automation System</title>
 
 
     <!-- ===============================================-->
@@ -68,11 +68,11 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-   
 
 
 
-      
+
+
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-    
+
 
 
 
@@ -133,13 +133,13 @@
 
         <div class="container">
           <div class="row">
-            
+
             <div class="col-xl-4 pt-2 pt-xl-0">
-              <p class="mb-0 text-center text-xl-end"><a class="text-300 text-decoration-none footer-link" href="#!">&copy; °ø°³SWÇÁ·ÎÁ§Æ®</a><a class="text-300 text-decoration-none footer-link ps-4" href="#!">5Á¶ [¿ÀÁöÁ¶] </a>
+              <p class="mb-0 text-center text-xl-end"><a class="text-300 text-decoration-none footer-link" href="#!">&copy; ï¿½ï¿½ï¿½ï¿½SWï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®</a><a class="text-300 text-decoration-none footer-link ps-4" href="#!">5ï¿½ï¿½ [ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½] </a>
               </p>
             </div>
             <div class="col-xl-5 pt-2 pt-xl-0 text-center text-xl-end">
-              <p class="mb-0">À±ÈñÃ¢ ÃÖ°æ¼­ Â÷µµÇö ¾Æ¹Ì³ª ¿ÀÈñÁ¤<a class="text-300" href="https://themewagon.com/" target="_blank"></a></p>
+              <p class="mb-0">ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½Ö°æ¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¹Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<a class="text-300" href="https://themewagon.com/" target="_blank"></a></p>
             </div>
           </div>
         </div>
