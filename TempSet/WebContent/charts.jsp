@@ -95,10 +95,10 @@ if(ucodeR == null){
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Charts</h1>
+                        <h1 class="mt-4">Space Management</h1>
                         <ol class="breadcrumb mb-4">
 
-                            <li class="breadcrumb-item active">Charts</li>
+                            <li class="breadcrumb-item active">Manage your space</li>
                         </ol>
                         <div class="row">
                         	<div class="col-lg-6">
