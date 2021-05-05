@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,26 +26,26 @@
 
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Room Name</label>
-                                                <input class="form-control py-4" id="TableName" type="text" aria-describedby="emailHelp" placeholder="Enter table name" />
+                                                <input class="form-control py-4" id="TableName" name="rname" type="text" aria-describedby="emailHelp" placeholder="Enter table name" />
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Cam code</label>
-                                                        <input class="form-control py-4" id="camcode" type="text" placeholder="Enter cam code" />
+                                                        <input class="form-control py-4" id="camcode" name="rcamcole" type="text" placeholder="Enter cam code" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputConfirmPassword">Area Size(m2)</label>
-                                                        <input class="form-control py-4" id="areasize" type="text" placeholder="Enter area size" />
+                                                        <input class="form-control py-4" id="areasize" name="rsize" type="text" placeholder="Enter area size" />
                                                     </div>
                                                 </div>
 
                                             </div>
                                             </div>
 
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="tables.jsp">Insert Table</a></div>
+                                            <div class="form-group mt-4 mb-0"><input type="submit" value="Insert Table" class="btn btn-primary btn-block"></div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,9 +19,9 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    
+
                     <div class="input-group-append">
-                        
+
                     </div>
                 </div>
             </form>
@@ -30,7 +30,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        
+
                         <a class="dropdown-item" href="login.jsp">Logout</a>
                     </div>
                 </li>
@@ -41,8 +41,8 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            
-                            
+
+
                             <div class="sb-sidenav-menu-heading">Help</div>
                             <a class="nav-link" href="charts.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -54,7 +54,7 @@
                             </a>
                         </div>
                     </div>
-                    
+
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -65,7 +65,7 @@
                             
                             <li class="breadcrumb-item active">Charts</li>
                         </ol>
-                        
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area mr-1"></i>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </main>
-                
+
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>

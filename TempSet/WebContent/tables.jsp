@@ -1,42 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ page import="java.sql.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<%	// Cookie 있으면 id에 저장. 없으면 id는 null
-	String header = request.getHeader("Cookie");
-	String uid = null;
-
-	if (header != null) {
-		Cookie[] cookies = request.getCookies();
-
-		for(Cookie cookie : cookies) {
-			if (cookie.getName().equals("uid")) {
-				uid = (String) cookie.getValue();
-			}
-		}
-	}
+<%
+String ucodeR = session.getAttribute("ucode").toString();
+if(ucodeR == null){
+  response.sendRedirect("main.html");
+}
 %>
 <%
-	String bid=null, rid=null, rname=null;
-	int rnum, rsize, rdensity;
-	boolean ractivity;
+String ucode = null;
+String rid = null;
+int rsize, rdensity, ractivity, rauto, rcamcode;
 
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	String sql, sql1;
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/tempset?serverTimezone=UTC";
-		conn = DriverManager.getConnection(url, "root", "0000");
-		stmt = conn.createStatement();
-		sql = "select * from ROOM";
-		rs = stmt.executeQuery(sql);
-	}
-	catch(Exception e) {
-		out.println("DB 연동 오류입니다.: " + e.getMessage());
-	}
+Connection conn = null;
+Statement stmt = null;
+ResultSet rs = null;
+String sql, sql1;
+try {
+  Class.forName("com.mysql.jdbc.Driver");
+  String url = "jdbc:mysql://localhost:3306/tempset?serverTimezone=UTC";
+  conn = DriverManager.getConnection(url, "root", "0000");
+  stmt = conn.createStatement();
+  sql = "select * from ROOM where ucode="+ucodeR;
+  rs = stmt.executeQuery(sql);
+}
+catch(Exception e) {
+  out.println("DB 연동 오류입니다.: " + e.getMessage());
+}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,43 +112,28 @@
                                                 <th>Salary</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
-                                            <tr>
                                               <%
                                               while(rs.next()) {
-                                                bid = rs.getString("bid");				// user id
-                                                rid = rs.getString("rid");				// 공간 id
-                                                rname = rs.getString("rname");			// 공간 이름
-                                                rnum = rs.getInt("rnum");				// 사람수
-                                                rsize = rs.getInt("rsize");				// 면적
-                                                rdensity = rs.getInt("rdensity");		// 밀집도
-                                                ractivity = rs.getBoolean("ractivity");	// on/off
-
-                                                if(bid.equals(uid)) {
-                                                  %>
-
-                                                  <td><%=bid %>, <%=rid %>, <%=rname %>, <%=rnum %></td>
-
-
-                                                  <%
-                                                } else {
-                                                  //rs.previous();
-                                                  break;
-                                                }
-                                              }
-
-                                              %>
+                                                ucode = rs.getString("ucode");            // user code
+                                                rid = rs.getString("rid");            // room id
+                                                rsize = rs.getInt("rsize");            // room size
+                                                ractivity = rs.getInt("ractivity");   // on/off
+                                                rauto = rs.getInt("rauto");         // on/off
+                                                rcamcode = rs.getInt("rcamcode");   // cam code
+                                            %>
+                                            <tr>
+                                                <td><%=rid %></td>
+                                                <td><%=rsize %></td>
+                                                <td>!count!</td>
+                                                <td>!count/rsize!</td>
+                                                <td>!temp!</td>
+                                                <td><%=rauto%></td>
+                                                <td><%=ractivity %></td>
                                             </tr>
+                                            <%
+                                              }
+                                              %>
 
                                         </tbody>
                                     </table>

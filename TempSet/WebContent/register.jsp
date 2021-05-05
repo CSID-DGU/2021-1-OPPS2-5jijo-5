@@ -22,17 +22,17 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
-                                           
+
+                                        <form method='post' action='register_db.jsp'>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" name='uid' type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <input class="form-control py-4" id="inputPassword" name=upw type="password" placeholder="Enter password" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -44,11 +44,11 @@
 				<div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputFirstName">Code</label>
-                                                        <input class="form-control py-4" id="inputEmailAddress" type="text" placeholder="Enter the code" />
+                                                        <input class="form-control py-4" id="inputEmailAddress" name='ucode' type="text" placeholder="Enter the code" />
                                                     </div>
                                             </div>
                                             </div>
-			      
+
                                             <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.jsp">Create Account</a></div>
                                         </form>
                                     </div>
@@ -61,7 +61,7 @@
                     </div>
                 </main>
             </div>
-            
+
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

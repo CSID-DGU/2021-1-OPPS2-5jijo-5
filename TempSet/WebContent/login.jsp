@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,21 +25,21 @@
                                         <form>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" name='uid' type="email" placeholder="Enter email address" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                <input class="form-control py-4" id="inputPassword" name='upw' type="password" placeholder="Enter password" />
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                                    <input class="custom-control-input" id="rememberPasswordCheck" name='save' type="checkbox" />
                                                     <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.jsp"></a>
-                                                <a class="btn btn-primary" href="tables.jsp">Login</a>
+                                                <input type='submit' class="btn btn-primary" value='Login'>
                                             </div>
                                         </form>
                                     </div>
@@ -52,7 +52,7 @@
                     </div>
                 </main>
             </div>
-            
+
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
