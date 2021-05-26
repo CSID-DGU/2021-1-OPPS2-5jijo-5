@@ -16,9 +16,9 @@ if(ucodeR == null){
    String ucode = null;
    int rsize, rdensity, ractivity, rauto, rcamcode;
    Connection conn = null;
-   Statement stmt1 = null, stmt2 = null;
-   ResultSet rs = null, rs2=null;
-   String sql, sql2;
+   Statement stmt1 = null;
+   ResultSet rs = null;
+   String sql;
    try {
       Class.forName("com.mysql.jdbc.Driver");
       String url = "jdbc:mysql://localhost:3306/tempset?serverTimezone=UTC";
@@ -126,6 +126,74 @@ if(ucodeR == null){
                            			} catch (Exception e) {
                               			System.out.println(e.getMessage());
                            			}%>
+							
+							<%
+
+									ArrayList<ArrayList<String>> Pdatas = new ArrayList<ArrayList<String>>();
+									ArrayList<ArrayList<String>> Tdatas = new ArrayList<ArrayList<String>>();
+
+									
+									try {
+										Statement stmt2 = conn.createStatement();
+								
+										String sql2 = "select * from DETAIL where ucode='" + ucodeR + "' and rid='" + rname + "'";
+										ResultSet rs2 = stmt2.executeQuery(sql2);
+										
+										ArrayList<String> title = new ArrayList<>();
+										title.add("'Time'");
+										title.add("' '");
+										Pdatas.add(title);
+										
+										ArrayList<String> Ttitle = new ArrayList<>();
+										Tdatas.add(title);
+								        
+										while (rs2.next()) {
+									      	String dtime = rs2.getString("dtime"); 
+											String dpeople = String.valueOf(rs2.getInt("dpeople")); 
+											String dtemp = String.valueOf(rs2.getFloat("dtemp")); 
+											
+											ArrayList<String> Pdata = new ArrayList<>();
+											Pdata.add("'"+dtime+"'");
+											Pdata.add(dpeople);
+											Pdatas.add(Pdata);
+											
+											ArrayList<String> Tdata = new ArrayList<>();
+											Tdata.add("'"+dtime+"'");
+											Tdata.add(dtemp);
+									        Tdatas.add(Tdata);
+										}
+										System.out.println(Pdatas);
+										System.out.println(Tdatas);
+								
+										conn.close();
+									} catch (Exception e) {
+										System.out.println(e.getMessage());
+									}
+									%>
+								<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+								<script type="text/javascript">
+									google.charts.load('current', {'packages':['corechart','bar']});
+									google.charts.setOnLoadCallback(drawPChart);	
+									function drawPChart() {
+									  var Pdata = google.visualization.arrayToDataTable(<%=Pdatas%>);
+									  var Poptions = {
+									  };
+									
+									  var Pchart = new google.charts.Bar(document.getElementById('PChart'));
+									  Pchart.draw(Pdata, google.charts.Bar.convertOptions(Poptions));
+									}
+									
+									google.charts.setOnLoadCallback(drawTChart);								
+									function drawTChart() {
+									  var Tdata = google.visualization.arrayToDataTable(<%=Tdatas%>);								
+									  var Toptions = {
+									  		
+									  };								        
+									  var Tchart = new google.visualization.LineChart(document.getElementById('TChart'));								
+									  Tchart.draw(Tdata, Toptions);
+									}
+								      
+							</script>
 									
                             <div class="col-lg-6">
                                 <div class="card mb-4">
@@ -133,12 +201,7 @@ if(ucodeR == null){
                                         <i class="fas fa-chart-bar mr-1"></i>
                                         Number Of People
                                     </div>
-                            		<div>
-                            			<jsp:include page="./chartPNum.jsp">
-                            				<jsp:param name="ucodeR" value="<%=ucodeR%>"/>
-                            				<jsp:param name="rname" value="<%=rname%>"/>
-                            			</jsp:include>
-									</div>					
+                            		<div id="PChart" style="width: 100%; height: 90%;"></div>
                                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                                 </div>
                             </div>
@@ -149,10 +212,7 @@ if(ucodeR == null){
                                 Temperature
                             </div>
                             <div>
-                            	<jsp:include page="./chartTemp.jsp">
-                            		<jsp:param name="ucodeR" value="<%=ucodeR%>"/>
-                            		<jsp:param name="rname" value="<%=rname%>"/>
-                            	</jsp:include>
+                            <div id="TChart" style="width: 100%; height: 90%;"></div>    
 							</div>                            
                             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                         </div>
