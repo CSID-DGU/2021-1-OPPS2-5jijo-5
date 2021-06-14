@@ -44,3 +44,5 @@
 ![image](https://user-images.githubusercontent.com/62127798/120918297-be2bf500-c6ee-11eb-8b7e-5c0279e74234.png)
 
 7) 새로운 공간 삽입 페이지 (insertRoom)
+
+![image](https://user-images.githubusercontent.com/62127798/120918314-db60c380-c6ee-11eb-9480-8c852cfba092.png)
