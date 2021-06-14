@@ -15,12 +15,12 @@ if(ucodeR == null){
 <html>
 <head><meta charset="EUC-KR"><title>Insert title here</title></head>
 <body>
-<%   // ÀÔ·Â¹ŞÀº ROOM Á¤º¸¸¦ ¹ÙÅÁÀ¸·Î ROOM table¿¡ ¹æ ÀÔ·ÂÇÏ±â
-   String bid, rid, ucode;    // ¹æ ÀÌ¸§, user code
-   int rsize = 0;      // ¹æ Å©±â
-   int ractivity = 0; // È°¼ºÈ­ :ÃÊ±â °íÁ¤°ª
-  int rauto = 0;    // ÀÚµ¿¼öµ¿ :ÃÊ±â °íÁ¤°ª
-  int rcamcode =0;   // Ä«¸Ş¶ó ÄÚµå
+<%   // ì…ë ¥ë°›ì€ ROOM ì •ë³´ë¥¼ ë°”íƒ•ìœ¼ë¡œ ROOM tableì— ë°© ì…ë ¥í•˜ê¸°
+   String bid, rid, ucode;    // ë°© ì´ë¦„, user code
+   int rsize = 0;      // ë°© í¬ê¸°
+   int ractivity = 0; // í™œì„±í™” :ì´ˆê¸° ê³ ì •ê°’
+   int rauto = 0;    // ìë™ìˆ˜ë™ :ì´ˆê¸° ê³ ì •ê°’
+   int rcamcode =0;   // ì¹´ë©”ë¼ ì½”ë“œ
 
    Connection conn = null;
    Statement stmt = null;
@@ -32,38 +32,34 @@ if(ucodeR == null){
       String url = "jdbc:mysql://localhost:3306/tempset?serverTimezone=UTC";
       conn = DriverManager.getConnection(url, "root", "0000");
       stmt = conn.createStatement();
-      //sql = "select * from ROOM";
-      //sql2 = "select UCODE from USER where uid=" + uid;
-      //rs = stmt.executeQuery(sql);
-      //rs2 = stmt.executeQuery(sql2);
    }
    catch(Exception e) {
-      out.println("DB ¿¬µ¿ ¿À·ùÀÔ´Ï´Ù.: " + e.getMessage());
+      out.println("DB ì—°ë™ ì˜¤ë¥˜ì…ë‹ˆë‹¤.: " + e.getMessage());
    }
 
    ucode = ucodeR;
-   // ÀÔ·ÂµÈ È¸¿øÁ¤º¸ request·Î °¡Á®¿À±â
+   // ì…ë ¥ëœ íšŒì›ì •ë³´ requestë¡œ ê°€ì ¸ì˜¤ê¸°
    bid = request.getParameter("bid");
    rid = request.getParameter("rname");
    rid = bid.concat(rid);
    rcamcode = Integer.parseInt(request.getParameter("rcamcode"));
    rsize = Integer.parseInt(request.getParameter("rsize"));
 
-   // ÀÔ·ÂµÇÁö ¾ÊÀº È¸¿øÁ¤º¸ ÀÖÀ» ½Ã °æ°íÃ¢ ¶ß±â
+   // ì…ë ¥ë˜ì§€ ì•Šì€ íšŒì›ì •ë³´ ìˆì„ ì‹œ ê²½ê³ ì°½ ëœ¨ê¸°
    if (rid.equals("") || rsize == 0) {
-      out.println("<script>alert('Á¤º¸¸¦ ¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä.'); history.back();</script>");
+      out.println("<script>alert('ì •ë³´ë¥¼ ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”.'); history.back();</script>");
    }
    else {
-      // È¸¿øÁ¤º¸ member table¿¡ ÀÔ·ÂÇÒ string
-      sql = "insert into ROOM values ('" + ucode + "','" + rid + "'," + rsize + "," + ractivity + "," + rcamcode + "," + rauto + ")";
+      // íšŒì›ì •ë³´ member tableì— ì…ë ¥í•  string
+      sql = "insert into ROOM values ('" + ucode + "','" + rid + "'," + rsize + ", " + rcamcode + ", " + rauto +")";
 
-      // Áßº¹µÈ ¾ÆÀÌµğ ÀÖÀ» ½Ã °æ°íÃ¢ ¶ß±â or ¾øÀ¸¸é È¸¿ø°¡ÀÔ ¿Ï·á(string member table¿¡ ÀÔ·Â)
+      // ì¤‘ë³µëœ ì•„ì´ë”” ìˆì„ ì‹œ ê²½ê³ ì°½ ëœ¨ê¸° or ì—†ìœ¼ë©´ íšŒì›ê°€ì… ì™„ë£Œ(string member tableì— ì…ë ¥)
       try {
          stmt.executeUpdate(sql);
-         out.println("<script>alert('»õ·Î¿î ROOMÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù.'); location.href='tables.jsp';</script>");
+         out.println("<script>alert('ìƒˆë¡œìš´ ROOMì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.'); location.href='roomList.jsp';</script>");
       } catch(Exception e) {
-    	 System.out.println(e);
-         out.println("<script>alert('Áßº¹µÈ ÀÌ¸§ÀÇ ROOMÀÔ´Ï´Ù.'); history.back();</script>");
+         out.println("<script>alert('ì¤‘ë³µëœ ROOMì´ ì¡´ì¬í•©ë‹ˆë‹¤.');history.back();</script>");
+
       }
    }
 %>
