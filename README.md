@@ -47,4 +47,4 @@
 
 ![image](https://user-images.githubusercontent.com/62127798/120918314-db60c380-c6ee-11eb-9480-8c852cfba092.png)
 
-8) yolo v3를 사용하기 위해 추가적으로 yolov3.cfg, yolov3.weights 파일이 필요하며 이는 Darknet에서 얻을 수 있다. 추가적인 정보는 yolo_readme.txt에서 확인
+
